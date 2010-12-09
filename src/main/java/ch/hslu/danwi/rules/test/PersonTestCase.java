@@ -1,6 +1,6 @@
 package ch.hslu.danwi.rules.test;
 
-import junit.framework.Assert;
+import static org.junit.Assert.*;
 
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
@@ -45,7 +45,7 @@ public class PersonTestCase {
 		person.setAufenthaltsTage(35);
 		person.setErwerbstaetig(true);
 		runRules();
-		Assert.assertEquals("LU", person.getSteuerRechtlicherKanton());
+		assertEquals("LU", person.getSteuerRechtlicherKanton());
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ public class PersonTestCase {
 		person.setAufenthaltsTage(25);
 		person.setErwerbstaetig(true);
 		runRules();
-		Assert.assertEquals(null, person.getSteuerRechtlicherKanton());
+		assertEquals(null, person.getSteuerRechtlicherKanton());
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class PersonTestCase {
 		person.setAufenthaltsTage(35);
 		person.setErwerbstaetig(false);
 		runRules();
-		Assert.assertEquals(null, person.getSteuerRechtlicherKanton());
+		assertEquals(null, person.getSteuerRechtlicherKanton());
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ public class PersonTestCase {
 		person.setAufenthaltsTage(97);
 		person.setErwerbstaetig(false);
 		runRules();
-		Assert.assertEquals("LU", person.getSteuerRechtlicherKanton());
+		assertEquals("LU", person.getSteuerRechtlicherKanton());
 	}
 
 	private void runRules() {
