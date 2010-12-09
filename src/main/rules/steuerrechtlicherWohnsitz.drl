@@ -1,0 +1,28 @@
+#created on: 09.12.2010
+package ch.hslu.danwi.rules
+
+#list any import classes here.
+import ch.hslu.danwi.rules.Person;
+import ch.hslu.danwi.rules.Zivilstand;
+
+
+#declare any global variables here
+
+
+rule "T1"
+	
+	when
+		p : Person(erwerbstaetig == true, aufenthaltsTage >=30)
+	then 
+		p.setSteuerRechtlicherKanton("LU");
+		
+end
+
+rule "T2"
+	#include attributes such as "salience" here...
+	when
+		p : Person(erwerbstaetig == false, aufenthaltsTage >=90)
+	then 
+		p.setSteuerRechtlicherKanton("LU");
+		
+end
