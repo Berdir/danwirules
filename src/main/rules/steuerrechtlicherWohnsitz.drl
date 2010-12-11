@@ -12,7 +12,7 @@ import ch.hslu.danwi.rules.Zivilstand;
 rule "T1"
 	
 	when
-		p : Person(erwerbstaetig == true, aufenthaltsTage >=30)
+		p : Person(erwerbstaetig == ThreeValuedBoolean.TRUE, aufenthaltsTage >=30)
 	then 
 		p.setSteuerRechtlicherKanton("LU");
 		
@@ -21,7 +21,7 @@ end
 rule "T2"
 	#include attributes such as "salience" here...
 	when
-		p : Person(erwerbstaetig == false, aufenthaltsTage >=90)
+		p : Person(erwerbstaetig == ThreeValuedBoolean.FALSE, aufenthaltsTage >=90)
 	then 
 		p.setSteuerRechtlicherKanton("LU");
 		

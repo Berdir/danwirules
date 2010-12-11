@@ -4,47 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
-	private boolean erwerbstaetig;
-	private boolean inObersterDirektion;
-	private boolean hatVerantwortung;
-	
+	private ThreeValuedBoolean erwerbstaetig = ThreeValuedBoolean.UNKNOWN;
+	private ThreeValuedBoolean inObersterDirektion = ThreeValuedBoolean.UNKNOWN;
+	private ThreeValuedBoolean hatVerantwortung = ThreeValuedBoolean.UNKNOWN;
+
 	private int aufenthaltsTage;
-	
+
 	private int alter;
-	
+
 	private String steuerRechtlicherKanton;
-	
+
 	private String wohnsitz;
 	private String wochenaufenthaltsort;
 	private String Hauptsteuerdomizil;
 	private List<String> Nebensteuerdomizil = new ArrayList<String>();
 
 	private Person partner;
-	
+
 	private Zivilstand zivilstand;
 
-	public void setErwerbstaetig(boolean erwerbstaetig) {
-		this.erwerbstaetig = erwerbstaetig;
-	}
-
-	public boolean isErwerbstaetig() {
+	public ThreeValuedBoolean getErwerbstaetig() {
 		return erwerbstaetig;
 	}
 
-	public void setInObersterDirektion(boolean inObersterDirektion) {
-		this.inObersterDirektion = inObersterDirektion;
+	public void setErwerbstaetig(ThreeValuedBoolean erwerbstaetig) {
+		this.erwerbstaetig = erwerbstaetig;
 	}
 
-	public boolean isInObersterDirektion() {
+	public ThreeValuedBoolean getInObersterDirektion() {
 		return inObersterDirektion;
 	}
 
-	public void setVerantwortung(boolean hatVerantwortung) {
+	public void setInObersterDirektion(ThreeValuedBoolean inObersterDirektion) {
+		this.inObersterDirektion = inObersterDirektion;
+	}
+
+	public ThreeValuedBoolean getHatVerantwortung() {
+		return hatVerantwortung;
+	}
+
+	public void setHatVerantwortung(ThreeValuedBoolean hatVerantwortung) {
 		this.hatVerantwortung = hatVerantwortung;
 	}
 
-	public boolean isVerantwortung() {
-		return hatVerantwortung;
+	public List<String> getNebensteuerdomizil() {
+		return Nebensteuerdomizil;
+	}
+
+	public void setNebensteuerdomizil(List<String> nebensteuerdomizil) {
+		Nebensteuerdomizil = nebensteuerdomizil;
 	}
 
 	public void setAlter(int alter) {
@@ -59,7 +67,8 @@ public class Person {
 	}
 
 	/**
-	 * @param erwerbsTage the erwerbsTage to set
+	 * @param erwerbsTage
+	 *            the erwerbsTage to set
 	 */
 	public void setAufenthaltsTage(int erwerbsTage) {
 		this.aufenthaltsTage = erwerbsTage;
@@ -116,6 +125,5 @@ public class Person {
 	public Zivilstand getZivilstand() {
 		return zivilstand;
 	}
-	
-	
+
 }
