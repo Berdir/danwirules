@@ -13,6 +13,7 @@ import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.StatefulKnowledgeSession;
 
 import ch.hslu.danwi.rules.Person;
+import ch.hslu.danwi.rules.ThreeValuedBoolean;
 
 public class RulesProcessor {
 	public static final void main(String[] args) {
@@ -24,7 +25,7 @@ public class RulesProcessor {
 			// go !
 			Person person = new Person();
 			person.setAufenthaltsTage(105);
-			person.setErwerbstaetig(false);
+			person.setErwerbstaetig(ThreeValuedBoolean.FALSE);
 			ksession.insert(person);
 			ksession.fireAllRules();
 			logger.close();

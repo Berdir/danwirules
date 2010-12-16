@@ -4,66 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
-	private boolean erwerbstaetig;
-	private boolean inObersterDirektion;
-	private boolean hatVerantwortung;
-	private boolean VermoegenZusammenrechnen;
-	
-	/**
-	 * @return the vermoegenZusammenrechnen
-	 */
-	public boolean isVermoegenZusammenrechnen() {
-		return VermoegenZusammenrechnen;
-	}
-
-	/**
-	 * @param vermoegenZusammenrechnen the vermoegenZusammenrechnen to set
-	 */
-	public void setVermoegenZusammenrechnen(boolean vermoegenZusammenrechnen) {
-		VermoegenZusammenrechnen = vermoegenZusammenrechnen;
-	}
-
-	private int aufenthaltsTage;
-	
 	private int alter;
+	private int aufenthaltsTage;
+	private ThreeValuedBoolean erwerbstaetig = ThreeValuedBoolean.UNKNOWN;
+	private ThreeValuedBoolean hatVerantwortung = ThreeValuedBoolean.UNKNOWN;
 	
-	private String steuerRechtlicherKanton;
-	
-	private String wohnsitz;
-	private String wochenaufenthaltsort;
 	private String Hauptsteuerdomizil;
+
+	private ThreeValuedBoolean inObersterDirektion = ThreeValuedBoolean.UNKNOWN;
+
 	private List<String> Nebensteuerdomizil = new ArrayList<String>();
 
 	private Person partner;
-	
+
+	private String steuerRechtlicherKanton;
+
+	private ThreeValuedBoolean VermoegenZusammenrechnen = ThreeValuedBoolean.UNKNOWN;
+	private String wochenaufenthaltsort;
+	private String wohnsitz;
 	private Zivilstand zivilstand;
 
-	public void setErwerbstaetig(boolean erwerbstaetig) {
-		this.erwerbstaetig = erwerbstaetig;
-	}
-
-	public boolean isErwerbstaetig() {
-		return erwerbstaetig;
-	}
-
-	public void setInObersterDirektion(boolean inObersterDirektion) {
-		this.inObersterDirektion = inObersterDirektion;
-	}
-
-	public boolean isInObersterDirektion() {
-		return inObersterDirektion;
-	}
-
-	public void setVerantwortung(boolean hatVerantwortung) {
-		this.hatVerantwortung = hatVerantwortung;
-	}
-
-	public boolean isVerantwortung() {
-		return hatVerantwortung;
-	}
-
-	public void setAlter(int alter) {
-		this.alter = alter;
+	public int getAlter() {
+		return alter;
 	}
 
 	/**
@@ -73,64 +35,110 @@ public class Person {
 		return aufenthaltsTage;
 	}
 
-	/**
-	 * @param erwerbsTage the erwerbsTage to set
-	 */
-	public void setAufenthaltsTage(int erwerbsTage) {
-		this.aufenthaltsTage = erwerbsTage;
+	public ThreeValuedBoolean getErwerbstaetig() {
+		return erwerbstaetig;
 	}
 
-	public int getAlter() {
-		return alter;
-	}
-
-	public void setSteuerRechtlicherKanton(String steuerRechtlicherKanton) {
-		this.steuerRechtlicherKanton = steuerRechtlicherKanton;
-	}
-
-	public String getSteuerRechtlicherKanton() {
-		return steuerRechtlicherKanton;
-	}
-
-	public void setWohnsitz(String wohnsitz) {
-		this.wohnsitz = wohnsitz;
-	}
-
-	public String getWohnsitz() {
-		return wohnsitz;
-	}
-
-	public void setWochenaufenthaltsort(String wochenaufenthaltsort) {
-		this.wochenaufenthaltsort = wochenaufenthaltsort;
-	}
-
-	public String getWochenaufenthaltsort() {
-		return wochenaufenthaltsort;
-	}
-
-	public void setHauptsteuerdomizil(String hauptsteuerdomizil) {
-		Hauptsteuerdomizil = hauptsteuerdomizil;
+	public ThreeValuedBoolean getHatVerantwortung() {
+		return hatVerantwortung;
 	}
 
 	public String getHauptsteuerdomizil() {
 		return Hauptsteuerdomizil;
 	}
 
-	public void setPartner(Person partner) {
-		this.partner = partner;
+	public ThreeValuedBoolean getInObersterDirektion() {
+		return inObersterDirektion;
+	}
+
+	public List<String> getNebensteuerdomizil() {
+		return Nebensteuerdomizil;
 	}
 
 	public Person getPartner() {
 		return partner;
 	}
 
-	public void setZivilstand(Zivilstand zivilstand) {
-		this.zivilstand = zivilstand;
+	public String getSteuerRechtlicherKanton() {
+		return steuerRechtlicherKanton;
+	}
+
+	public String getWochenaufenthaltsort() {
+		return wochenaufenthaltsort;
+	}
+
+	public String getWohnsitz() {
+		return wohnsitz;
 	}
 
 	public Zivilstand getZivilstand() {
 		return zivilstand;
 	}
-	
-	
+
+	/**
+	 * @return the vermoegenZusammenrechnen
+	 */
+	public ThreeValuedBoolean isVermoegenZusammenrechnen() {
+		return VermoegenZusammenrechnen;
+	}
+
+	public void setAlter(int alter) {
+		this.alter = alter;
+	}
+
+	/**
+	 * @param erwerbsTage
+	 *            the erwerbsTage to set
+	 */
+	public void setAufenthaltsTage(int erwerbsTage) {
+		this.aufenthaltsTage = erwerbsTage;
+	}
+
+	public void setErwerbstaetig(ThreeValuedBoolean erwerbstaetig) {
+		this.erwerbstaetig = erwerbstaetig;
+	}
+
+	public void setHatVerantwortung(ThreeValuedBoolean hatVerantwortung) {
+		this.hatVerantwortung = hatVerantwortung;
+	}
+
+	public void setHauptsteuerdomizil(String hauptsteuerdomizil) {
+		Hauptsteuerdomizil = hauptsteuerdomizil;
+	}
+
+	public void setInObersterDirektion(ThreeValuedBoolean inObersterDirektion) {
+		this.inObersterDirektion = inObersterDirektion;
+	}
+
+	public void setNebensteuerdomizil(List<String> nebensteuerdomizil) {
+		Nebensteuerdomizil = nebensteuerdomizil;
+	}
+
+	public void setPartner(Person partner) {
+		this.partner = partner;
+	}
+
+	public void setSteuerRechtlicherKanton(String steuerRechtlicherKanton) {
+		this.steuerRechtlicherKanton = steuerRechtlicherKanton;
+	}
+
+	/**
+	 * @param vermoegenZusammenrechnen the vermoegenZusammenrechnen to set
+	 */
+	public void setVermoegenZusammenrechnen(ThreeValuedBoolean vermoegenZusammenrechnen) {
+		VermoegenZusammenrechnen = vermoegenZusammenrechnen;
+	}
+
+	public void setWochenaufenthaltsort(String wochenaufenthaltsort) {
+		this.wochenaufenthaltsort = wochenaufenthaltsort;
+	}
+
+	public void setWohnsitz(String wohnsitz) {
+		this.wohnsitz = wohnsitz;
+	}
+
+	public void setZivilstand(Zivilstand zivilstand) {
+		this.zivilstand = zivilstand;
+	}
+
 }
