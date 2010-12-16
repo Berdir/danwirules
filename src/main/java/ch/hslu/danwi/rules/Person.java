@@ -24,6 +24,71 @@ public class Person {
 	private String wohnsitz;
 	private Zivilstand zivilstand;
 
+	private int vermoegen;
+	private int einkommen;
+
+	private String land;
+
+	private ThreeValuedBoolean individuelleVermoegensZuordnung = ThreeValuedBoolean.UNKNOWN;
+	
+
+	/**
+	 * @return the individuelleVermoegensZuordnung
+	 */
+	public ThreeValuedBoolean getIndividuelleVermoegensZuordnung() {
+		return individuelleVermoegensZuordnung;
+	}
+
+	/**
+	 * @param individuelleVermoegensZuordnung the individuelleVermoegensZuordnung to set
+	 */
+	public void setIndividuelleVermoegensZuordnung(
+			ThreeValuedBoolean individuelleVermoegensZuordnung) {
+		this.individuelleVermoegensZuordnung = individuelleVermoegensZuordnung;
+	}
+
+	/**
+	 * @return the vermoegen
+	 */
+	public int getVermoegen() {
+		return vermoegen;
+	}
+
+	/**
+	 * @return the einkommen
+	 */
+	public int getEinkommen() {
+		return einkommen;
+	}
+
+	/**
+	 * @param vermoegen the vermoegen to set
+	 */
+	public void setVermoegen(int vermoegen) {
+		this.vermoegen = vermoegen;
+	}
+
+	/**
+	 * @param einkommen the einkommen to set
+	 */
+	public void setEinkommen(int einkommen) {
+		this.einkommen = einkommen;
+	}
+
+	/**
+	 * @return the land
+	 */
+	public String getLand() {
+		return land;
+	}
+
+	/**
+	 * @param land the land to set
+	 */
+	public void setLand(String land) {
+		this.land = land;
+	}
+
 	public int getAlter() {
 		return alter;
 	}

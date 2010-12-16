@@ -99,6 +99,65 @@ public class PersonTestCase {
 		runRules();
 		assertEquals(ThreeValuedBoolean.UNKNOWN, person.isVermoegenZusammenrechnen());
 	}
+	
+	@Test
+	public void testPartnerInland() {
+		person.setWohnsitz("Horw");
+		Person partner = new Person();
+		partner.setWohnsitz("Horw");
+		partner.setEinkommen(50000);
+		partner.setVermoegen(100000);
+		partner.setLand("CH");
+		partner.setErwerbstaetig(ThreeValuedBoolean.FALSE);
+		person.setPartner(partner);
+		person.setLand("CH");
+		person.setVermoegen(200000);
+		person.setEinkommen(100000);
+		
+		runRules();
+		assertEquals(75000, person.getEinkommen());
+		assertEquals(150000, person.getVermoegen());
+	}
+	
+	@Test
+	public void testPartnerAusland() {
+		person.setWohnsitz("Horw");
+		Person partner = new Person();
+		partner.setWohnsitz("New York");
+		partner.setEinkommen(50000);
+		partner.setVermoegen(100000);
+		partner.setLand("US");
+		partner.setErwerbstaetig(ThreeValuedBoolean.FALSE);
+		person.setPartner(partner);
+		person.setLand("CH");
+		person.setVermoegen(200000);
+		person.setEinkommen(100000);
+		
+		runRules();
+		assertEquals(100000, person.getEinkommen());
+		assertEquals(200000, person.getVermoegen());
+	}
+	
+	@Test
+	public void testPartnerInlandErwebstaetig() {
+		person.setWohnsitz("Horw");
+		Person partner = new Person();
+		partner.setWohnsitz("Horw");
+		partner.setEinkommen(50000);
+		partner.setVermoegen(100000);
+		partner.setLand("CH");
+		partner.setErwerbstaetig(ThreeValuedBoolean.TRUE);
+		person.setPartner(partner);
+		person.setLand("CH");
+		person.setVermoegen(200000);
+		person.setEinkommen(100000);
+		
+		runRules();
+		assertEquals(100000, person.getEinkommen());
+		assertEquals(200000, person.getVermoegen());
+	}
+	
+	
 
 	private void runRules() {
 		ksession.insert(person);

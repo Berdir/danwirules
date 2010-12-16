@@ -33,3 +33,12 @@ rule "T3"
 	then
 		p.setVermoegenZusammenrechnen(ThreeValuedBoolean.TRUE);
 end
+
+rule "T4"
+	when
+		p : Person(partner != null, partner.erwerbstaetig == ThreeValuedBoolean.FALSE, partner.land == land)
+	then
+		p.setVermoegen((p.getVermoegen() + p.getPartner().getVermoegen()) / 2);
+		p.setEinkommen((p.getEinkommen() + p.getPartner().getEinkommen()) / 2);
+end
+
