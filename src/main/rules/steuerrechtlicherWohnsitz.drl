@@ -42,3 +42,9 @@ rule "T4"
 		p.setEinkommen((p.getEinkommen() + p.getPartner().getEinkommen()) / 2);
 end
 
+rule "T5"
+	when
+		p : Person(partner != null,	partner.erwerbstaetig == ThreeValuedBoolean.TRUE)
+	then
+		p.setIndividuelleVermoegensZuordnung(ThreeValuedBoolean.TRUE);
+end

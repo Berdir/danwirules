@@ -157,6 +157,26 @@ public class PersonTestCase {
 		assertEquals(200000, person.getVermoegen());
 	}
 	
+	@Test
+	public void testPartnerErwebstaetig() {
+		Person partner = new Person();
+		partner.setErwerbstaetig(ThreeValuedBoolean.TRUE);
+		person.setPartner(partner);
+		
+		runRules();
+		assertEquals(ThreeValuedBoolean.TRUE, person.getIndividuelleVermoegensZuordnung());
+	}
+	
+	@Test
+	public void testPartnerNichtErwebstaetig() {
+		Person partner = new Person();
+		partner.setErwerbstaetig(ThreeValuedBoolean.FALSE);
+		person.setPartner(partner);
+		
+		runRules();
+		assertEquals(ThreeValuedBoolean.UNKNOWN, person.getIndividuelleVermoegensZuordnung());
+	}
+	
 	
 
 	private void runRules() {
