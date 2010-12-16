@@ -55,3 +55,10 @@ rule "T6"
 	then
 		p.setIndividuelleVermoegensZuordnung(ThreeValuedBoolean.TRUE);
 end
+
+rule "T8"
+	when
+		p : Person(partner == null, minderjaehrigeKinder == ThreeValuedBoolean.FALSE)
+	then
+		p.setZivilstand(Zivilstand.LEDIG);
+end

@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import ch.hslu.danwi.rules.Person;
 import ch.hslu.danwi.rules.ThreeValuedBoolean;
+import ch.hslu.danwi.rules.Zivilstand;
 
 public class PersonTestCase {
 
@@ -198,6 +199,49 @@ public class PersonTestCase {
 		runRules();
 		assertEquals(ThreeValuedBoolean.UNKNOWN, person.getIndividuelleVermoegensZuordnung());
 	}
+	
+	@Test
+	public void testPersonKeinPartnerKeineMinderjaehrigeKinder() {
+		person.setMinderjaehrigeKinder(ThreeValuedBoolean.FALSE);
+		
+		runRules();
+		assertEquals(Zivilstand.LEDIG, person.getZivilstand());
+	}
+	
+	@Test
+	public void testPersonPartnerKeineMinderjaehrigeKinder() {
+		Person partner = new Person();
+		person.setPartner(partner);
+		person.setMinderjaehrigeKinder(ThreeValuedBoolean.FALSE);
+		
+		runRules();
+		
+		assertEquals(Zivilstand.UNKNOWN, person.getZivilstand());
+	}
+	
+	@Test
+	public void testPersonKeinPartnerMinderjaehrigeKinder() {
+		person.setMinderjaehrigeKinder(ThreeValuedBoolean.TRUE);
+		
+		runRules();
+		
+		assertEquals(Zivilstand.UNKNOWN, person.getZivilstand());
+	}
+	
+	@Test
+	public void testPersonPartnerMinderjaehrigeKinder() {
+		Person partner = new Person();
+		person.setPartner(partner);
+		person.setMinderjaehrigeKinder(ThreeValuedBoolean.TRUE);
+		
+		runRules();
+		
+		assertEquals(Zivilstand.UNKNOWN, person.getZivilstand());
+	}
+	
+
+	
+	
 	
 	
 

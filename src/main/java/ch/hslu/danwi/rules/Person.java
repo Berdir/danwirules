@@ -8,6 +8,7 @@ public class Person {
 	private int aufenthaltsTage;
 	private ThreeValuedBoolean erwerbstaetig = ThreeValuedBoolean.UNKNOWN;
 	private ThreeValuedBoolean hatVerantwortung = ThreeValuedBoolean.UNKNOWN;
+	private ThreeValuedBoolean minderjaehrigeKinder = ThreeValuedBoolean.UNKNOWN;
 	
 	private String Hauptsteuerdomizil;
 
@@ -22,7 +23,7 @@ public class Person {
 	private ThreeValuedBoolean VermoegenZusammenrechnen = ThreeValuedBoolean.UNKNOWN;
 	private String wochenaufenthaltsort;
 	private String wohnsitz;
-	private Zivilstand zivilstand;
+	private Zivilstand zivilstand = Zivilstand.UNKNOWN;
 
 	private int vermoegen;
 	private int einkommen;
@@ -205,5 +206,19 @@ public class Person {
 	public void setZivilstand(Zivilstand zivilstand) {
 		this.zivilstand = zivilstand;
 	}
+
+	public ThreeValuedBoolean getMinderjaehrigeKinder() {
+		return minderjaehrigeKinder;
+	}
+
+	public void setMinderjaehrigeKinder(ThreeValuedBoolean minderjaehrigeKinder) {
+		this.minderjaehrigeKinder = minderjaehrigeKinder;
+	}
+
+	public ThreeValuedBoolean getVermoegenZusammenrechnen() {
+		return VermoegenZusammenrechnen;
+	}
+	
+	
 
 }
