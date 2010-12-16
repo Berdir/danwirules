@@ -177,6 +177,28 @@ public class PersonTestCase {
 		assertEquals(ThreeValuedBoolean.UNKNOWN, person.getIndividuelleVermoegensZuordnung());
 	}
 	
+	@Test
+	public void testPartnerInternational() {
+		Person partner = new Person();
+		partner.setLand("CH");
+		person.setPartner(partner);
+		person.setLand("USA");
+		
+		runRules();
+		assertEquals(ThreeValuedBoolean.TRUE, person.getIndividuelleVermoegensZuordnung());
+	}
+	
+	@Test
+	public void testPartnerNational() {
+		Person partner = new Person();
+		partner.setLand("CH");
+		person.setPartner(partner);
+		person.setLand("CH");
+		
+		runRules();
+		assertEquals(ThreeValuedBoolean.UNKNOWN, person.getIndividuelleVermoegensZuordnung());
+	}
+	
 	
 
 	private void runRules() {

@@ -48,3 +48,10 @@ rule "T5"
 	then
 		p.setIndividuelleVermoegensZuordnung(ThreeValuedBoolean.TRUE);
 end
+
+rule "T6"
+	when
+		p : Person(partner != null, partner.land != land)
+	then
+		p.setIndividuelleVermoegensZuordnung(ThreeValuedBoolean.TRUE);
+end
