@@ -26,3 +26,9 @@ rule "T2"
 		p.setSteuerRechtlicherKanton("LU");
 		
 end
+
+rule "T3"
+	when
+		p : Person(partner != null, wohnsitz != partner.wohnsitz)
+	then
+		p.setVermoegenZusammenrechnen(true);

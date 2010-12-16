@@ -71,6 +71,33 @@ public class PersonTestCase {
 		runRules();
 		assertEquals("LU", person.getSteuerRechtlicherKanton());
 	}
+	
+	@Test
+	public void testPartnerWohnsitzSeparat() {
+		person.setWohnsitz("Horw");
+		Person partner = new Person();
+		partner.setWohnsitz("Kernenried");
+		person.setPartner(partner);
+		runRules();
+		assertTrue(person.isVermoegenZusammenrechnen());
+	}
+	
+	@Test
+	public void testPartnerWohnsitzGemeinsam() {
+		person.setWohnsitz("Horw");
+		Person partner = new Person();
+		partner.setWohnsitz("Horw");
+		person.setPartner(partner);
+		runRules();
+		assertFalse(person.isVermoegenZusammenrechnen());
+	}
+	
+	@Test
+	public void testKeinPartner() {
+		person.setWohnsitz("Horw");
+		runRules();
+		assertFalse(person.isVermoegenZusammenrechnen());
+	}
 
 	private void runRules() {
 		ksession.insert(person);

@@ -7,7 +7,22 @@ public class Person {
 	private boolean erwerbstaetig;
 	private boolean inObersterDirektion;
 	private boolean hatVerantwortung;
+	private boolean VermoegenZusammenrechnen;
 	
+	/**
+	 * @return the vermoegenZusammenrechnen
+	 */
+	public boolean isVermoegenZusammenrechnen() {
+		return VermoegenZusammenrechnen;
+	}
+
+	/**
+	 * @param vermoegenZusammenrechnen the vermoegenZusammenrechnen to set
+	 */
+	public void setVermoegenZusammenrechnen(boolean vermoegenZusammenrechnen) {
+		VermoegenZusammenrechnen = vermoegenZusammenrechnen;
+	}
+
 	private int aufenthaltsTage;
 	
 	private int alter;
